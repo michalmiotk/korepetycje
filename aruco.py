@@ -3,7 +3,7 @@ import cv2
 import cv2.aruco as aruco
 import glob
 from datetime import datetime
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
 marker_length = 0.1
 
 focal = 650
@@ -74,9 +74,14 @@ def get_shot():
 
     # display the resulting frame
     cv2.imshow('frame',frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(2) & 0xFF == ord('q'):
         pass
-
+a = set()
 while (True):
     ids = get_shot()
-    print("ids", *ids)
+    #a.add()
+    idiki = list(ids)
+    if idiki:
+        print(idiki)
+        a.add(idiki[0][0])
+    print("ids", a)
